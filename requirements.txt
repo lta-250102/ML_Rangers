@@ -1,0 +1,5 @@
+fastapi==0.95.2
+pandas==2.0.2
+pyarrow==12.0.0
+scikit-learn==1.2.2
+uvicorn==0.22.0

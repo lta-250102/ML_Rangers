@@ -1,0 +1,8 @@
+version: '0'
+services:
+  mlapi:
+    image: mlapi:latest
+    restart: always
+    ports:
+      - "8000:8000"
+      

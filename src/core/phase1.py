@@ -26,7 +26,7 @@ class Prob1Model():
         self.excutor = ThreadPoolExecutor(max_workers=20)
         self.load_model()
 
-    def train(self, model=RandomForestClassifier()) -> RandomForestClassifier:
+    def train(self):
         '''train and save model'''
         # prepare data
         data = pd.read_parquet(Prob1Model.train_data_path, engine='pyarrow')
@@ -37,16 +37,14 @@ class Prob1Model():
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=Prob1Model.config.test_size_ratio, random_state=Prob1Model.config.random_state)
         
         # train
-        model.fit(X_train, y_train)
+        self.model.fit(X_train, y_train)
 
         # evaluate
-        y_pred = model.predict(X_test)
+        y_pred = self.model.predict(X_test)
         print(classification_report(y_test, y_pred))
 
         # save model
-        pickle.dump(model, open(Prob1Model.model_path, 'wb'))
-
-        return model
+        pickle.dump(self.model, open(Prob1Model.model_path, 'wb'))
 
     def infer(self, request: Phase1Prob1Request) -> Phase1Prob1Response:
         prediction = self.excutor.submit(self.predict, request.columns, request.rows)
@@ -58,10 +56,9 @@ class Prob1Model():
         return response
 
     def predict(self, columns: list[str], X: list[list]) -> list:
-        model = self.load_model()
         X = pd.DataFrame(X, columns=columns)
         X = self.preprocess(X)
-        y = model.predict(X)
+        y = self.model.predict(X)
         return y.tolist()
 
     def preprocess(self, X: pd.DataFrame) -> list:
@@ -72,9 +69,9 @@ class Prob1Model():
     def load_model(self):
         try:
             # load model
-            model = pickle.load(open(Prob1Model.model_path, 'rb'))
+            self.model = pickle.load(open(Prob1Model.model_path, 'rb'))
         except:
             # init model
             print('Model not found, init model')
-            model = self.train(model=model)
-        return model
+            self.model = RandomForestClassifier()
+            self.train()

@@ -23,7 +23,7 @@ class Prob1Model():
         return cls._instance
     
     def __init__(self) -> None:
-        self.excutor = ThreadPoolExecutor(max_workers=20)
+        self.excutor = ThreadPoolExecutor(max_workers=15)
         self.load_model()
 
     def train(self):

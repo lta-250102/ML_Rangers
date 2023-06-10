@@ -17,25 +17,26 @@ class Prob1Model():
     config = SYSConfig()
     model_path = config.model_dir + name
     train_data_path = config.data_dir + train_data
+    excutor = ThreadPoolExecutor(max_workers=50)
 
     def __new__(cls):
         if cls._instance is None:
             cls._instance = super(Prob1Model, cls).__new__(cls)
+            cls._instance.load_model()
         return cls._instance
     
-    def __init__(self) -> None:
-        self.excutor = ThreadPoolExecutor(max_workers=20)
-        self.load_model()
+    # def __init__(self) -> None:
+    #     self.load_model()
 
     def train(self):
         '''train and save model'''
         # prepare data
-        data = pd.read_parquet(Prob1Model.train_data_path, engine='pyarrow')
+        data = pd.read_parquet(self.train_data_path, engine='pyarrow')
         y = data['label']
         X = self.preprocess(data)
 
         # split data
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=Prob1Model.config.test_size_ratio, random_state=Prob1Model.config.random_state)
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=self.config.test_size_ratio, random_state=self.config.random_state)
         
         # train
         self.model.fit(X_train, y_train)
@@ -45,7 +46,7 @@ class Prob1Model():
         print(classification_report(y_test, y_pred))
 
         # save model
-        pickle.dump(self.model, open(Prob1Model.model_path, 'wb'))
+        pickle.dump(self.model, open(self.model_path, 'wb'))
 
     def infer(self, request: Request) -> Response:
         prediction = self.excutor.submit(self.predict, request.columns, request.rows)
@@ -71,7 +72,7 @@ class Prob1Model():
     def load_model(self):
         try:
             # load model
-            self.model = pickle.load(open(Prob1Model.model_path, 'rb'))
+            self.model = pickle.load(open(self.model_path, 'rb'))
         except:
             # init model
             print('Model not found, init model')
@@ -106,24 +107,25 @@ class Prob2Model():
     encoder_path = config.model_dir + encoder_name
     model_path = config.model_dir + name
     train_data_path = config.data_dir + train_data
+    excutor = ThreadPoolExecutor(max_workers=50)
 
     def __new__(cls):
         if cls._instance is None:
             cls._instance = super(Prob2Model, cls).__new__(cls)
+            cls._instance.load_model()
         return cls._instance
     
-    def __init__(self) -> None:
-        self.excutor = ThreadPoolExecutor(max_workers=20)
-        self.load_model()
+    # def __init__(self) -> None:
+    #     self.load_model()
 
     def train(self):
         '''train and save model'''
         # prepare data
-        data = pd.read_parquet(Prob1Model.train_data_path, engine='pyarrow')
+        data = pd.read_parquet(self.train_data_path, engine='pyarrow')
         y = data['label']
         X = data.drop(columns=['label'])
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=Prob1Model.config.test_size_ratio, random_state=Prob1Model.config.random_state)
-        self.encoder.fit(X_train[Prob2Model.category_columns])
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=self.config.test_size_ratio, random_state=self.config.random_state)
+        self.encoder.fit(X_train[self.category_columns])
 
         X_train = self.preprocess(X_train)
         X_test = self.preprocess(X_test)
@@ -136,7 +138,7 @@ class Prob2Model():
         print(classification_report(y_test, y_pred))
 
         # save model
-        pickle.dump(self.model, open(Prob1Model.model_path, 'wb'))
+        pickle.dump(self.model, open(self.model_path, 'wb'))
 
     def infer(self, request: Request) -> Response:
         prediction = self.excutor.submit(self.predict, request.columns, request.rows)
@@ -156,16 +158,16 @@ class Prob2Model():
 
     def preprocess(self, X: pd.DataFrame) -> pd.DataFrame:
         '''preprocess data'''
-        tranformed = self.encoder.transform(X.loc[:, Prob2Model.category_columns])
-        X_cat = pd.DataFrame(tranformed, columns=Prob2Model.category_columns)
-        X_cleaned = X.drop(columns=Prob2Model.category_columns, axis=1).reset_index(drop=True)
+        tranformed = self.encoder.transform(X.loc[:, self.category_columns])
+        X_cat = pd.DataFrame(tranformed, columns=self.category_columns)
+        X_cleaned = X.drop(columns=self.category_columns, axis=1).reset_index(drop=True)
         X_cleaned = pd.concat([X_cleaned, X_cat], axis=1)
         return X_cleaned
 
     def load_model(self):
         try:
-            self.model = pickle.load(open(Prob2Model.model_path, 'rb'))
-            self.encoder = pickle.load(open(Prob2Model.encoder_path, 'rb'))
+            self.model = pickle.load(open(self.model_path, 'rb'))
+            self.encoder = pickle.load(open(self.encoder_path, 'rb'))
         except:
             # init model
             print('Model not found, init model')

@@ -5,7 +5,7 @@ class HelloWorldUser(HttpUser):
     @task
     def phase1_prob1(self):
         with open('./phase1_prob1_rows.json', 'r') as f:
-            self.client.post("1/1/predict", json={
+            self.client.post("phase-1/prob-1/predict", json={
                 "id": "first",
                 "columns": [
                     "feature1", "feature2",  "feature3", "feature4", "feature5", "feature6", "feature7", "feature8",
@@ -17,7 +17,7 @@ class HelloWorldUser(HttpUser):
     @task
     def phase1_prob2(self):
         with open('./phase1_prob2_rows.json', 'r') as f:
-            self.client.post("1/2/predict", json={
+            self.client.post("phase-1/prob-2/predict", json={
                 "id": "first",
                 "columns": [
                     "feature1", "feature2",  "feature3", "feature4", "feature5", "feature6", "feature7", "feature8",

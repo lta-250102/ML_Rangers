@@ -9,4 +9,4 @@ app = FastAPI()
 async def root():
     return {"message": "Hello, we are ML Rangers!"}
 
-app.include_router(phase1_router, prefix='/1')
+app.include_router(phase1_router, prefix='/phase-1')

@@ -47,3 +47,4 @@ class SYSConfig(Config):
         self.data_dir = os.getcwd() + self.get('data_dir')
         self.test_size_ratio = float(self.get('test_size_ratio'))
         self.random_state = int(self.get('random_state'))
+        self.pool_size = int(self.get('pool_size'))

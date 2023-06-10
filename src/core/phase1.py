@@ -1,5 +1,7 @@
+import mlflow
 import pickle
 import pandas as pd
+from core.model import Model
 from core.config import SYSConfig
 from api.request import Request
 from api.response import Response
@@ -10,23 +12,12 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 
 
-class Prob1Model():
-    _instance = None
+class Prob1Model(Model):
     name = '/phase1_prob1_model.pkl'
     train_data = '/phase-1/prob-1/raw_train.parquet'
     config = SYSConfig()
     model_path = config.model_dir + name
     train_data_path = config.data_dir + train_data
-    excutor = ThreadPoolExecutor(max_workers=50)
-
-    def __new__(cls):
-        if cls._instance is None:
-            cls._instance = super(Prob1Model, cls).__new__(cls)
-            cls._instance.load_model()
-        return cls._instance
-    
-    # def __init__(self) -> None:
-    #     self.load_model()
 
     def train(self):
         '''train and save model'''
@@ -39,6 +30,7 @@ class Prob1Model():
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=self.config.test_size_ratio, random_state=self.config.random_state)
         
         # train
+        self.model = RandomForestClassifier()
         self.model.fit(X_train, y_train)
 
         # evaluate
@@ -48,22 +40,6 @@ class Prob1Model():
         # save model
         pickle.dump(self.model, open(self.model_path, 'wb'))
 
-    def infer(self, request: Request) -> Response:
-        prediction = self.excutor.submit(self.predict, request.columns, request.rows)
-        response = Response(
-            id=request.id,
-            # prediction=self.predict(request.columns, request.rows),
-            prediction=prediction.result(),
-            drift=0
-        )
-        return response
-
-    def predict(self, columns: list[str], X: list[list]) -> list:
-        X = pd.DataFrame(X, columns=columns)
-        X = self.preprocess(X)
-        y = self.model.predict(X)
-        return y.tolist()
-
     def preprocess(self, X: pd.DataFrame) -> pd.DataFrame:
         '''preprocess data'''
         X = X.loc[:, ['feature3', 'feature11', 'feature15', 'feature16']]
@@ -71,17 +47,11 @@ class Prob1Model():
 
     def load_model(self):
         try:
-            # load model
             self.model = pickle.load(open(self.model_path, 'rb'))
         except:
-            # init model
-            print('Model not found, init model')
-            self.model = RandomForestClassifier()
             self.train()
 
-
-class Prob2Model():
-    _instance = None
+class Prob2Model(Model):
     name = '/phase1_prob2_model.pkl'
     encoder_name = '/phase1_prob2_encoder.pkl'
     train_data = '/phase-1/prob-2/raw_train.parquet'
@@ -107,16 +77,6 @@ class Prob2Model():
     encoder_path = config.model_dir + encoder_name
     model_path = config.model_dir + name
     train_data_path = config.data_dir + train_data
-    excutor = ThreadPoolExecutor(max_workers=50)
-
-    def __new__(cls):
-        if cls._instance is None:
-            cls._instance = super(Prob2Model, cls).__new__(cls)
-            cls._instance.load_model()
-        return cls._instance
-    
-    # def __init__(self) -> None:
-    #     self.load_model()
 
     def train(self):
         '''train and save model'''
@@ -125,12 +85,14 @@ class Prob2Model():
         y = data['label']
         X = data.drop(columns=['label'])
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=self.config.test_size_ratio, random_state=self.config.random_state)
+        self.encoder = OrdinalEncoder()
         self.encoder.fit(X_train[self.category_columns])
 
         X_train = self.preprocess(X_train)
         X_test = self.preprocess(X_test)
         
         # train
+        self.model = RandomForestClassifier()
         self.model.fit(X_train, y_train)
 
         # evaluate
@@ -139,22 +101,6 @@ class Prob2Model():
 
         # save model
         pickle.dump(self.model, open(self.model_path, 'wb'))
-
-    def infer(self, request: Request) -> Response:
-        prediction = self.excutor.submit(self.predict, request.columns, request.rows)
-        response = Response(
-            id=request.id,
-            # prediction=self.predict(request.columns, request.rows),
-            prediction=prediction.result(),
-            drift=0
-        )
-        return response
-
-    def predict(self, columns: list[str], X: list[list]) -> list:
-        X = pd.DataFrame(X, columns=columns)
-        X = self.preprocess(X)
-        y = self.model.predict(X)
-        return y.tolist()
 
     def preprocess(self, X: pd.DataFrame) -> pd.DataFrame:
         '''preprocess data'''
@@ -169,9 +115,10 @@ class Prob2Model():
             self.model = pickle.load(open(self.model_path, 'rb'))
             self.encoder = pickle.load(open(self.encoder_path, 'rb'))
         except:
-            # init model
-            print('Model not found, init model')
-            self.model = RandomForestClassifier()
-            self.encoder = OrdinalEncoder()
             self.train()
 
+def load_model():
+    '''load model'''
+    model_1 = Prob1Model()
+    model_2 = Prob2Model()
+    print('Model loaded')

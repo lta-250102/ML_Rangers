@@ -1,8 +1,8 @@
 import pickle
 import pandas as pd
 from core.model import Model
-from core.config import SYSConfig
 from sklearn.preprocessing import OrdinalEncoder
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 
 
@@ -12,12 +12,10 @@ class Prob1Model(Model):
         X = X.loc[:, ['feature3', 'feature11', 'feature15', 'feature16']]
         return X
 
-class Prob2Model(Model):
-    def train(self):
-        '''train model'''
-        self.load_encoder()
-        super().train()
+    def init_model(self):
+        self.model = RandomForestClassifier()
 
+class Prob2Model(Model):
     def load_encoder(self):
         try:
             self.encoder = pickle.load(open(self.encoder_path, 'rb'))
@@ -36,9 +34,9 @@ class Prob2Model(Model):
         X_cleaned = X.drop(columns=self.category_columns, axis=1).reset_index(drop=True)
         X_cleaned = pd.concat([X_cleaned, X_cat], axis=1)
         return X_cleaned
-
-    def load_model(self, phase: int, prob: int):
-        '''load model'''
+    
+    def init_config(self, phase: int, prob: int):
+        super().init_config(phase, prob)
         self.encoder_name = f'/phase{phase}_prob{prob}_encoder.pkl'
         self.category_columns = [
             "feature1",
@@ -58,16 +56,21 @@ class Prob2Model(Model):
             "feature19",
             "feature20"
         ]
-        self.config = SYSConfig()
         self.encoder_path = self.config.model_dir + self.encoder_name
+
+    def load_model(self):
+        '''load model'''
         self.load_encoder()
-        super().load_model(phase, prob)
+        super().load_model()
+
+    def init_model(self):
+        self.model = RandomForestClassifier()
 
 
 def load_model():
     '''load model'''
     model_1 = Prob1Model()
     model_2 = Prob2Model()
-    model_1.load_model(1, 1)
-    model_2.load_model(1, 2)
+    model_2.setup(1, 2)
+    model_1.setup(1, 1)
     print('Model loaded')

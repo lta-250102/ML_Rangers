@@ -36,17 +36,16 @@ class Model:
         y = self.model.predict(X)
         return y.tolist()
     
-    def load_model(self, phase: int, prob: int):
-        self.name = f'/phase{phase}_prob{prob}_model.pkl'
-        self.train_data = f'/phase-{phase}/prob-{prob}/raw_train.parquet'
-        self.model_path = self.config.model_dir + self.name
-        self.train_data_path = self.config.data_dir + self.train_data
+    def setup(self, phase: int, prob: int):
+        self.init_config(phase, prob)
+        self.load_model()
+    
+    def load_model(self):
         try:
-            self.model = pickle.load(open(self.model_path, 'rb'))
+            self.model = pickle.load(open(self.model_path, 'rb')) if self.logged_model is None else mlflow.pyfunc.load_model(self.logged_model)
         except:
+            self.init_model()
             self.train()
-        # save model
-        pickle.dump(self.model, open(self.model_path, 'wb'))
 
     def train(self):
         data = pd.read_parquet(self.train_data_path, engine='pyarrow')
@@ -63,6 +62,20 @@ class Model:
             mlflow.log_metrics({'accuracy': self.model.score(X_test, y_test)})
             mlflow.sklearn.log_model(self.model, 'model', signature=infer_signature(X_train, y_train))
             mlflow.end_run()
+
+            # save model
+            pickle.dump(self.model, open(self.model_path, 'wb'))
+
+    def init_config(self, phase: int, prob: int):
+        self.name = f'phase{phase}_prob{prob}_model'
+        self.logged_model = self.config.get(self.name)
+        self.train_data = f'/phase-{phase}/prob-{prob}/raw_train.parquet'
+        self.model_path = self.config.model_dir + '/' + self.name + '.pkl'
+        self.train_data_path = self.config.data_dir + self.train_data
+
+    @abstractmethod
+    def init_model(self):
+        pass
 
     @abstractmethod
     def preprocess(self, X: pd.DataFrame) -> pd.DataFrame:

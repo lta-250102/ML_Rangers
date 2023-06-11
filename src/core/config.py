@@ -19,8 +19,11 @@ class Config:
         self.section = section
         self.load_config()
 
-    def get(self, arg: str):
-        return self._config[self.section][arg]
+    def get(self, arg: str) -> str:
+        try:
+            return self._config[self.section][arg]
+        except:
+            return None
     
     @staticmethod
     def get_config(section: str, arg: str):

@@ -1,3 +1,4 @@
+import os
 import pickle
 import pandas as pd
 from core.model import Model
@@ -25,6 +26,7 @@ class Prob2Model(Model):
             X_train, X_test = train_test_split(X, test_size=self.config.test_size_ratio, random_state=self.config.random_state)
             self.encoder = OrdinalEncoder()
             self.encoder.fit(X_train[self.category_columns])
+            os.path.exists(self.config.model_dir) or os.makedirs(self.config.model_dir)
             pickle.dump(self.encoder, open(self.encoder_path, 'wb'))
 
     def preprocess(self, X: pd.DataFrame) -> pd.DataFrame:

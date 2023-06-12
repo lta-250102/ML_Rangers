@@ -7,3 +7,5 @@
 *.pkl
 
 *.zip
+
+/mlruns

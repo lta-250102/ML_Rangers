@@ -1,6 +1,6 @@
-from fastapi import APIRouter, HTTPException
 from api.request import Request
 from api.response import Response
+from fastapi import APIRouter, HTTPException
 from core.phase1 import Prob1Model, Prob2Model
 
 

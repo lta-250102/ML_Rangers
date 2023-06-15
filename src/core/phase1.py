@@ -1,7 +1,8 @@
 import os
 import pickle
+import random
 import pandas as pd
-from core.model import Model
+from core.model import Model, logging
 from sklearn.preprocessing import OrdinalEncoder
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
@@ -16,6 +17,10 @@ class Prob1Model(Model):
     def init_model(self):
         self.model = RandomForestClassifier()
 
+    def calculate_drift(self) -> int:
+        '''calculate drift'''
+        return random.randint(0, 1)
+
 class Prob2Model(Model):
     def load_encoder(self):
         try:
@@ -24,18 +29,22 @@ class Prob2Model(Model):
             data = pd.read_parquet(self.train_data_path, engine='pyarrow')
             X = data.drop(columns=['label'])
             X_train, X_test = train_test_split(X, test_size=self.config.test_size_ratio, random_state=self.config.random_state)
-            self.encoder = OrdinalEncoder()
+            self.encoder = OrdinalEncoder(handle_unknown='use_encoded_value', unknown_value=-1)
             self.encoder.fit(X_train[self.category_columns])
             os.path.exists(self.config.model_dir) or os.makedirs(self.config.model_dir)
             pickle.dump(self.encoder, open(self.encoder_path, 'wb'))
 
     def preprocess(self, X: pd.DataFrame) -> pd.DataFrame:
         '''preprocess data'''
-        tranformed = self.encoder.transform(X.loc[:, self.category_columns])
-        X_cat = pd.DataFrame(tranformed, columns=self.category_columns)
-        X_cleaned = X.drop(columns=self.category_columns, axis=1).reset_index(drop=True)
-        X_cleaned = pd.concat([X_cleaned, X_cat], axis=1)
-        return X_cleaned
+        try:
+            tranformed = self.encoder.transform(X.loc[:, self.category_columns])
+            X_cat = pd.DataFrame(tranformed, columns=self.category_columns)
+            X_cleaned = X.drop(columns=self.category_columns, axis=1).reset_index(drop=True)
+            X_cleaned = pd.concat([X_cleaned, X_cat], axis=1)
+            return X_cleaned
+        except Exception as e:
+            logging.exception(e)
+            raise e
     
     def init_config(self, phase: int, prob: int):
         super().init_config(phase, prob)
@@ -67,6 +76,10 @@ class Prob2Model(Model):
 
     def init_model(self):
         self.model = RandomForestClassifier()
+
+    def calculate_drift(self) -> int:
+        '''calculate drift'''
+        return random.randint(0, 1)
 
 
 def load_model():

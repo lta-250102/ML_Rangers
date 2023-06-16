@@ -11,7 +11,7 @@ from mlflow.models.signature import infer_signature
 from sklearn.model_selection import train_test_split
 
 
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+logger = logging.getLogger("ml_ranger_logger")
 
 class Model:
     _instance = None
@@ -40,7 +40,7 @@ class Model:
             y = self.model.predict(X)
             return y.tolist()
         except Exception as e:
-            logging.exception(e)
+            logger.exception(e)
             raise e
     
     def setup(self, phase: int, prob: int):
@@ -74,7 +74,7 @@ class Model:
                 # save model
                 pickle.dump(self.model, open(self.model_path, 'wb'))
         except Exception as e:
-            logging.exception(e)
+            logger.exception(e)
             raise e
 
     def init_config(self, phase: int, prob: int):

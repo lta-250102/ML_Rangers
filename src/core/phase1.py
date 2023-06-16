@@ -1,12 +1,16 @@
 import os
 import pickle
 import random
+import logging
 import pandas as pd
-from core.model import Model, logging
+from core.model import Model
+from lightgbm import LGBMClassifier
 from sklearn.preprocessing import OrdinalEncoder
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 
+
+logger = logging.getLogger("ml_ranger_logger")
 
 class Prob1Model(Model):
     def preprocess(self, X: pd.DataFrame) -> pd.DataFrame:
@@ -15,7 +19,7 @@ class Prob1Model(Model):
         return X
 
     def init_model(self):
-        self.model = RandomForestClassifier()
+        self.model = LGBMClassifier(objective='binary')
 
     def calculate_drift(self) -> int:
         '''calculate drift'''
@@ -39,16 +43,18 @@ class Prob2Model(Model):
         try:
             tranformed = self.encoder.transform(X.loc[:, self.category_columns])
             X_cat = pd.DataFrame(tranformed, columns=self.category_columns)
-            X_cleaned = X.drop(columns=self.category_columns, axis=1).reset_index(drop=True)
+            # X_cleaned = X.drop(columns=self.category_columns.__add__(['batch_id', 'is_drift']), axis=1).reset_index(drop=True)
+            X_cleaned = X.loc[:, self.num_columns]
             X_cleaned = pd.concat([X_cleaned, X_cat], axis=1)
             return X_cleaned
         except Exception as e:
-            logging.exception(e)
+            logger.exception(e)
             raise e
     
     def init_config(self, phase: int, prob: int):
         super().init_config(phase, prob)
         self.encoder_name = f'/phase{phase}_prob{prob}_encoder.pkl'
+        self.num_columns = ["feature2", "feature5", "feature13", "feature18"]
         self.category_columns = [
             "feature1",
             "feature3",
@@ -75,7 +81,7 @@ class Prob2Model(Model):
         super().load_model()
 
     def init_model(self):
-        self.model = RandomForestClassifier()
+        self.model = LGBMClassifier(objective='binary')
 
     def calculate_drift(self) -> int:
         '''calculate drift'''

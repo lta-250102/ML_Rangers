@@ -1,0 +1,2515 @@
+2023-06-20 17:43:59,265 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- feature10
+- feature12
+- feature14
+- feature15
+- feature3
+- ...
+Feature names seen at fit time, yet now missing:
+- feature18
+- feature2
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 82, in preprocess
+    temp = self.encoder.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- feature10
+- feature12
+- feature14
+- feature15
+- feature3
+- ...
+Feature names seen at fit time, yet now missing:
+- feature18
+- feature2
+
+2023-06-20 17:43:59,267 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- feature10
+- feature12
+- feature14
+- feature15
+- feature3
+- ...
+Feature names seen at fit time, yet now missing:
+- feature18
+- feature2
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 89, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 82, in preprocess
+    temp = self.encoder.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- feature10
+- feature12
+- feature14
+- feature15
+- feature3
+- ...
+Feature names seen at fit time, yet now missing:
+- feature18
+- feature2
+
+2023-06-20 17:47:04,671 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names seen at fit time, yet now missing:
+- feature10_V1
+- feature10_V2
+- feature12_V0
+- feature12_V1
+- feature12_V3
+- ...
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 40, in predict
+    y = self.model.predict(X)
+        ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/svm/_base.py", line 820, in predict
+    y = super().predict(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/svm/_base.py", line 433, in predict
+    X = self._validate_for_predict(X)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/svm/_base.py", line 613, in _validate_for_predict
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names seen at fit time, yet now missing:
+- feature10_V1
+- feature10_V2
+- feature12_V0
+- feature12_V1
+- feature12_V3
+- ...
+
+2023-06-20 17:57:40,605 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names seen at fit time, yet now missing:
+- feature10_V1
+- feature10_V2
+- feature12_V0
+- feature12_V1
+- feature12_V3
+- ...
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 40, in predict
+    y = self.model.predict(X)
+        ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/svm/_base.py", line 820, in predict
+    y = super().predict(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/svm/_base.py", line 433, in predict
+    X = self._validate_for_predict(X)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/svm/_base.py", line 613, in _validate_for_predict
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names seen at fit time, yet now missing:
+- feature10_V1
+- feature10_V2
+- feature12_V0
+- feature12_V1
+- feature12_V3
+- ...
+
+2023-06-20 18:02:50,134 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names seen at fit time, yet now missing:
+- feature10_V1
+- feature10_V2
+- feature12_V0
+- feature12_V1
+- feature12_V3
+- ...
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 40, in predict
+    y = self.model.predict(X)
+        ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/svm/_base.py", line 820, in predict
+    y = super().predict(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/svm/_base.py", line 433, in predict
+    X = self._validate_for_predict(X)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/svm/_base.py", line 613, in _validate_for_predict
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names seen at fit time, yet now missing:
+- feature10_V1
+- feature10_V2
+- feature12_V0
+- feature12_V1
+- feature12_V3
+- ...
+
+2023-06-21 13:47:29,596 	 ERROR 	 "['feature1_V0', 'feature1_V2', 'feature1_V3', 'feature3_V0', 'feature3_V1', 'feature3_V3', 'feature3_V4', 'feature4_V0', 'feature4_V1', 'feature4_V10', 'feature4_V2', 'feature4_V3', 'feature4_V4', 'feature4_V5', 'feature4_V6', 'feature4_V7', 'feature4_V9', 'feature6_V0', 'feature6_V1', 'feature6_V2', 'feature6_V3', 'feature7_V0', 'feature7_V1', 'feature7_V2', 'feature7_V3', 'feature9_V0', 'feature9_V1', 'feature9_V3', 'feature9_V4', 'feature10_V1', 'feature10_V2', 'feature12_V0', 'feature12_V1', 'feature12_V3', 'feature14_bank', 'feature14_stores', 'feature15_V0', 'feature15_V2', 'feature17_V0', 'feature17_V1', 'feature17_V3', 'feature19_yes', 'feature20_no'] not found in axis"
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 98, in preprocess
+    temp = df.drop(columns=self.onehot_features, axis=1, inplace=False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/pandas/core/frame.py", line 5258, in drop
+    return super().drop(
+           ^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/pandas/core/generic.py", line 4549, in drop
+    obj = obj._drop_axis(labels, axis, level=level, errors=errors)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/pandas/core/generic.py", line 4591, in _drop_axis
+    new_axis = axis.drop(labels, errors=errors)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 6696, in drop
+    raise KeyError(f"{list(labels[mask])} not found in axis")
+KeyError: "['feature1_V0', 'feature1_V2', 'feature1_V3', 'feature3_V0', 'feature3_V1', 'feature3_V3', 'feature3_V4', 'feature4_V0', 'feature4_V1', 'feature4_V10', 'feature4_V2', 'feature4_V3', 'feature4_V4', 'feature4_V5', 'feature4_V6', 'feature4_V7', 'feature4_V9', 'feature6_V0', 'feature6_V1', 'feature6_V2', 'feature6_V3', 'feature7_V0', 'feature7_V1', 'feature7_V2', 'feature7_V3', 'feature9_V0', 'feature9_V1', 'feature9_V3', 'feature9_V4', 'feature10_V1', 'feature10_V2', 'feature12_V0', 'feature12_V1', 'feature12_V3', 'feature14_bank', 'feature14_stores', 'feature15_V0', 'feature15_V2', 'feature17_V0', 'feature17_V1', 'feature17_V3', 'feature19_yes', 'feature20_no'] not found in axis"
+2023-06-21 13:47:29,601 	 ERROR 	 "['feature1_V0', 'feature1_V2', 'feature1_V3', 'feature3_V0', 'feature3_V1', 'feature3_V3', 'feature3_V4', 'feature4_V0', 'feature4_V1', 'feature4_V10', 'feature4_V2', 'feature4_V3', 'feature4_V4', 'feature4_V5', 'feature4_V6', 'feature4_V7', 'feature4_V9', 'feature6_V0', 'feature6_V1', 'feature6_V2', 'feature6_V3', 'feature7_V0', 'feature7_V1', 'feature7_V2', 'feature7_V3', 'feature9_V0', 'feature9_V1', 'feature9_V3', 'feature9_V4', 'feature10_V1', 'feature10_V2', 'feature12_V0', 'feature12_V1', 'feature12_V3', 'feature14_bank', 'feature14_stores', 'feature15_V0', 'feature15_V2', 'feature17_V0', 'feature17_V1', 'feature17_V3', 'feature19_yes', 'feature20_no'] not found in axis"
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 106, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 98, in preprocess
+    temp = df.drop(columns=self.onehot_features, axis=1, inplace=False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/pandas/core/frame.py", line 5258, in drop
+    return super().drop(
+           ^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/pandas/core/generic.py", line 4549, in drop
+    obj = obj._drop_axis(labels, axis, level=level, errors=errors)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/pandas/core/generic.py", line 4591, in _drop_axis
+    new_axis = axis.drop(labels, errors=errors)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 6696, in drop
+    raise KeyError(f"{list(labels[mask])} not found in axis")
+KeyError: "['feature1_V0', 'feature1_V2', 'feature1_V3', 'feature3_V0', 'feature3_V1', 'feature3_V3', 'feature3_V4', 'feature4_V0', 'feature4_V1', 'feature4_V10', 'feature4_V2', 'feature4_V3', 'feature4_V4', 'feature4_V5', 'feature4_V6', 'feature4_V7', 'feature4_V9', 'feature6_V0', 'feature6_V1', 'feature6_V2', 'feature6_V3', 'feature7_V0', 'feature7_V1', 'feature7_V2', 'feature7_V3', 'feature9_V0', 'feature9_V1', 'feature9_V3', 'feature9_V4', 'feature10_V1', 'feature10_V2', 'feature12_V0', 'feature12_V1', 'feature12_V3', 'feature14_bank', 'feature14_stores', 'feature15_V0', 'feature15_V2', 'feature17_V0', 'feature17_V1', 'feature17_V3', 'feature19_yes', 'feature20_no'] not found in axis"
+2023-06-21 14:46:54,387 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,389 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 106, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,406 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,407 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 106, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,424 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,424 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 106, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,442 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,443 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 106, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,459 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,460 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 106, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,479 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,480 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 106, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,495 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,496 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 106, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,516 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,517 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 106, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,534 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,534 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 106, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,553 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,554 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 106, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,572 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,573 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 106, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,590 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,591 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 106, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,608 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,609 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 106, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,628 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,629 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 106, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,727 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,727 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 106, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,744 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,745 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 106, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,760 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,761 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 106, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,774 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,775 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 106, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,791 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,792 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 106, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,806 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,806 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 106, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,823 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,824 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 106, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,838 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,839 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 106, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,856 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,856 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 106, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,869 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,870 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 106, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,883 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,883 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 106, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,896 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,897 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 106, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,911 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,911 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 106, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,925 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,926 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 106, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,940 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,940 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 106, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,957 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,957 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 106, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,971 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,972 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 106, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,989 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:54,989 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 106, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:55,010 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:55,010 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 106, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:55,024 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:55,024 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 106, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:55,038 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:55,039 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 106, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:55,055 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:55,055 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 106, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:55,071 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:55,072 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 106, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:55,087 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:55,088 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 106, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:55,101 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:55,102 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 106, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:55,116 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:55,117 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 106, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:55,131 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:55,132 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 106, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:55,147 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:55,147 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 106, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:55,164 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:55,164 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 106, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:55,179 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:55,179 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 106, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:55,196 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+
+2023-06-21 14:46:55,196 	 ERROR 	 The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+Traceback (most recent call last):
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/model.py", line 39, in predict
+    X = self.preprocess(X)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 106, in preprocess
+    raise e
+  File "/home/huynh/Documents/project/ML_Rangers/src/core/phase1.py", line 99, in preprocess
+    temp = self.scaler.transform(temp)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/utils/_set_output.py", line 140, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/preprocessing/_data.py", line 992, in transform
+    X = self._validate_data(
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 548, in _validate_data
+    self._check_feature_names(X, reset=reset)
+  File "/home/huynh/miniconda3/envs/mlranger/lib/python3.11/site-packages/sklearn/base.py", line 481, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- batch_id
+- is_drift
+

@@ -9,3 +9,5 @@
 *.zip
 
 /mlruns
+
+catboost_info

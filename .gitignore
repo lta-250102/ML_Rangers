@@ -8,6 +8,10 @@
 
 *.zip
 
-/mlruns
+*.log
+
+test
+
+mlruns
 
 catboost_info

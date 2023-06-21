@@ -37,7 +37,7 @@ class Prob2Model(Model):
         try:
             self.encoder = pickle.load(open(self.encoder_path, 'rb'))
 
-            with open('cache.json', 'r') as openfile:
+            with open(os.path.join(self.config.data_dir, 'phase-1/prob-2/cache.json'), 'r') as openfile:
                 cache = json.load(openfile)
             self.object_features = cache.object_features
             self.onehot_features = cache.onehot_features
@@ -74,7 +74,7 @@ class Prob2Model(Model):
             }
 
             json_object = json.dumps(cache, indent=4)
-            with open("cache.json", "w") as outfile:
+            with open(os.path.join(self.config.data_dir, 'phase-1/prob-2/cache.json'), "w") as outfile:
                 outfile.write(json_object)
             
             os.path.exists(self.config.model_dir) or os.makedirs(self.config.model_dir)

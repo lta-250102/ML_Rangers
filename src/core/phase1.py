@@ -4,10 +4,17 @@ import random
 import logging
 import pandas as pd
 from core.model import Model
-from lightgbm import LGBMClassifier
-from sklearn.preprocessing import OrdinalEncoder
-from sklearn.ensemble import RandomForestClassifier
+# from lightgbm import LGBMClassifier
+# from sklearn.preprocessing import OrdinalEncoder
+# from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
+
+from sklearn.preprocessing import OneHotEncoder
+from sklearn.preprocessing import StandardScaler
+# from sklearn.svm import SVC
+from catboost import CatBoostClassifier
+
+import json
 
 
 logger = logging.getLogger("ml_ranger_logger")
@@ -19,7 +26,7 @@ class Prob1Model(Model):
         return X
 
     def init_model(self):
-        self.model = LGBMClassifier(objective='binary')
+        self.model = CatBoostClassifier()
 
     def calculate_drift(self) -> int:
         '''calculate drift'''
@@ -29,24 +36,77 @@ class Prob2Model(Model):
     def load_encoder(self):
         try:
             self.encoder = pickle.load(open(self.encoder_path, 'rb'))
+
+            with open(os.path.join(self.config.data_dir, 'phase-1/prob-2/cache.json'), 'r') as openfile:
+                cache = json.load(openfile)
+            self.object_features = cache.object_features
+            self.onehot_features = cache.onehot_features
+            self.scale_features = cache.scale_features
+            
         except:
             data = pd.read_parquet(self.train_data_path, engine='pyarrow')
             X = data.drop(columns=['label'])
-            X_train, X_test = train_test_split(X, test_size=self.config.test_size_ratio, random_state=self.config.random_state)
-            self.encoder = OrdinalEncoder(handle_unknown='use_encoded_value', unknown_value=-1)
-            self.encoder.fit(X_train[self.category_columns])
+
+            self.object_features = list(X.select_dtypes(include=['object']).columns)
+
+            self.encoder = OneHotEncoder(sparse=False, handle_unknown='ignore')
+
+            temp = pd.DataFrame(self.encoder.fit_transform(X[self.object_features]))
+            temp.columns = self.encoder.get_feature_names_out(self.object_features)
+            X.drop(columns=self.object_features ,axis=1, inplace=True)
+            X = pd.concat([X, temp], axis=1)
+
+            # X_train, _ = train_test_split(X, test_size=self.config.test_size_ratio, random_state=self.config.random_state)
+
+            self.scaler = StandardScaler()
+
+            self.onehot_features = [column for column in list(X.columns) if column.split('_')[0] in self.object_features]
+            
+            temp = X.drop(columns=self.onehot_features, axis=1, inplace=False)
+            self.scale_features = list(temp.columns)
+
+            self.scaler.fit(temp)
+
+            cache = {
+                'object_features': self.object_features,
+                'onehot_features': self.onehot_features,
+                'scale_features': self.scale_features
+            }
+
+            json_object = json.dumps(cache, indent=4)
+            with open(os.path.join(self.config.data_dir, 'phase-1/prob-2/cache.json'), "w") as outfile:
+                outfile.write(json_object)
+            
             os.path.exists(self.config.model_dir) or os.makedirs(self.config.model_dir)
             pickle.dump(self.encoder, open(self.encoder_path, 'wb'))
 
     def preprocess(self, X: pd.DataFrame) -> pd.DataFrame:
         '''preprocess data'''
         try:
-            tranformed = self.encoder.transform(X.loc[:, self.category_columns])
-            X_cat = pd.DataFrame(tranformed, columns=self.category_columns)
-            # X_cleaned = X.drop(columns=self.category_columns.__add__(['batch_id', 'is_drift']), axis=1).reset_index(drop=True)
-            X_cleaned = X.loc[:, self.num_columns]
-            X_cleaned = pd.concat([X_cleaned, X_cat], axis=1)
-            return X_cleaned
+            # tranformed = self.encoder.transform(X.loc[:, self.category_columns])
+            # X_cat = pd.DataFrame(tranformed, columns=self.category_columns)
+            # # X_cleaned = X.drop(columns=self.category_columns.__add__(['batch_id', 'is_drift']), axis=1).reset_index(drop=True)
+            # X_cleaned = X.loc[:, self.num_columns]
+            # X_cleaned = pd.concat([X_cleaned, X_cat], axis=1)
+            # return X_cleaned
+            df = X.copy()
+
+            redundant_features = ['batch_id', 'is_drift']
+            for feature in redundant_features:
+                if feature in list(df.columns):
+                    df.drop(feature, inplace=True, axis=1)
+
+            temp = pd.DataFrame(self.encoder.transform(df[self.object_features]))
+            temp.columns = self.encoder.get_feature_names_out(self.object_features)
+            df.drop(columns=self.object_features ,axis=1, inplace=True)
+            df = pd.concat([df, temp], axis=1)
+
+            temp = df.drop(columns=self.onehot_features, axis=1, inplace=False)
+            temp = self.scaler.transform(temp)
+
+            df.loc[:, self.scale_features] = temp
+            return df
+
         except Exception as e:
             logger.exception(e)
             raise e
@@ -81,7 +141,7 @@ class Prob2Model(Model):
         super().load_model()
 
     def init_model(self):
-        self.model = LGBMClassifier(objective='binary')
+        self.model = CatBoostClassifier()
 
     def calculate_drift(self) -> int:
         '''calculate drift'''

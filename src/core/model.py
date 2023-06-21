@@ -10,6 +10,8 @@ from concurrent.futures import ThreadPoolExecutor
 from mlflow.models.signature import infer_signature
 from sklearn.model_selection import train_test_split
 
+from sklearn.metrics import roc_auc_score
+
 
 logger = logging.getLogger("ml_ranger_logger")
 
@@ -60,15 +62,17 @@ class Model:
             y = data['label']
             X = data.drop(columns=['label'])
             X = self.preprocess(X)
-            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=self.config.test_size_ratio, random_state=self.config.random_state)
+            # X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=self.config.test_size_ratio, random_state=self.config.random_state)
             
             with mlflow.start_run():
-                self.model.fit(X_train, y_train)
+                self.model.fit(X, y, verbose=False)
                 
                 # mlflow log
                 mlflow.log_params(self.model.get_params())
-                mlflow.log_metrics({'accuracy': self.model.score(X_test, y_test)})
-                mlflow.sklearn.log_model(self.model, 'model', signature=infer_signature(X_train, y_train))
+                mlflow.log_metrics({'accuracy': self.model.score(X, y), 
+                                    "roc-auc": roc_auc_score(y, self.model.predict(X))})
+
+                mlflow.sklearn.log_model(self.model, 'model', signature=infer_signature(X, y))
                 mlflow.end_run()
 
                 # save model

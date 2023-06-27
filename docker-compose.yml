@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   mlapi1:
-    build: .
+    build: mlapi:latest
     restart: on-failure
     volumes:
       - ./config.ini:/app/config.ini
@@ -10,10 +10,12 @@ services:
       - "8001:8000"
 
   mlapi2:
-    build: .
+    build: mlapi:latest
     restart: on-failure
     ports:
       - "8002:8000"
+    depends_on:
+      - mlapi1
 
   gateway:
     image: nginx:latest

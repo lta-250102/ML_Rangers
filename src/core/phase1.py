@@ -94,31 +94,24 @@ class Prob2Model(Model):
     def preprocess(self, X: pd.DataFrame) -> pd.DataFrame:
         '''preprocess data'''
         try:
-            # tranformed = self.encoder.transform(X.loc[:, self.category_columns])
-            # X_cat = pd.DataFrame(tranformed, columns=self.category_columns)
-            # # X_cleaned = X.drop(columns=self.category_columns.__add__(['batch_id', 'is_drift']), axis=1).reset_index(drop=True)
-            # X_cleaned = X.loc[:, self.num_columns]
-            # X_cleaned = pd.concat([X_cleaned, X_cat], axis=1)
-            # return X_cleaned
-            df = X.copy()
+            # remove redundant features
+            X.drop(columns=['batch_id', 'is_drift'], axis=1, errors='ignore', inplace=True)
 
-            redundant_features = ['batch_id', 'is_drift']
-            for feature in redundant_features:
-                if feature in list(df.columns):
-                    df.drop(feature, inplace=True, axis=1)
-
-            temp = pd.DataFrame(self.encoder.transform(df[self.object_features]))
+            # one-hot encode object dtype features
+            temp = pd.DataFrame(self.encoder.transform(X[self.object_features]))
             temp.columns = self.encoder.get_feature_names_out(self.object_features)
-            df.drop(columns=self.object_features ,axis=1, inplace=True)
-            df = pd.concat([df, temp], axis=1)
+            X.drop(columns=self.object_features, axis=1, inplace=True)
+            X = pd.concat([X, temp], axis=1)
 
-            temp = df.drop(columns=self.onehot_features, axis=1, inplace=False)
+            # scale down other features
+            temp = X.drop(columns=self.onehot_features, axis=1, inplace=False)
             temp = self.scaler.transform(temp)
 
-            df.loc[:, self.scale_features] = temp
+            X.loc[:, self.scale_features] = temp
 
-            df = df.loc[:, self.rfe_features]
-            return df
+            # get features that RFE outputs
+            X = X.loc[:, self.rfe_features]
+            return X
 
         except Exception as e:
             logger.exception(e)

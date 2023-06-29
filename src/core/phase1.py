@@ -1,21 +1,16 @@
 import os
+import json
 import pickle
 import random
 import logging
 import pandas as pd
 from core.model import Model
-# from lightgbm import LGBMClassifier
-# from sklearn.preprocessing import OrdinalEncoder
-# from sklearn.ensemble import RandomForestClassifier
-from sklearn.model_selection import train_test_split
-
+# from sklearn.svm import SVC
+from xgboost import XGBClassifier
+from catboost import CatBoostClassifier
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.preprocessing import StandardScaler
-# from sklearn.svm import SVC
-from catboost import CatBoostClassifier
-from xgboost import XGBClassifier
-
-import json
+from sklearn.model_selection import train_test_split
 
 
 logger = logging.getLogger("ml_ranger_logger")

@@ -6,11 +6,11 @@ from abc import abstractmethod
 from api.request import Request
 from api.response import Response
 from core.config import SYSConfig
+from api.cache import CacheFinder
+from sklearn.metrics import roc_auc_score
 from concurrent.futures import ThreadPoolExecutor
 from mlflow.models.signature import infer_signature
 from sklearn.model_selection import train_test_split
-
-from sklearn.metrics import roc_auc_score
 
 
 logger = logging.getLogger("ml_ranger_logger")
@@ -19,21 +19,37 @@ class Model:
     _instance = None
     config = SYSConfig()
     excutor = ThreadPoolExecutor(max_workers=config.pool_size)
+    cache_finder = CacheFinder()
 
     def __new__(cls):
         if cls._instance is None:
             cls._instance = super(Model, cls).__new__(cls)
-        return cls._instance
-    
+        return cls._instance        
+
     def infer(self, request: Request) -> Response:
-        prediction = self.excutor.submit(self.predict, request.columns, request.rows)
-        response = Response(
+        cache_predictions, appeared_lst = self.cache_finder.find_appeared_lst(request)
+        rows_to_predict = [row for row, appeared in zip(request.rows, appeared_lst) if not appeared]
+        logger.info(f'Cache hit: {len(cache_predictions) - len(rows_to_predict)}')
+
+        if len(rows_to_predict) > 0:
+            prediction = self.excutor.submit(self.predict, request.columns, rows_to_predict)
+            prediction_result = prediction.result()
+            self.cache_finder.save_cache(request.rows, prediction_result)
+
+            final_predictions = []
+            for i in range(len(appeared_lst)):
+                if appeared_lst[i]:
+                    final_predictions.append(cache_predictions[i])
+                else:
+                    final_predictions.append(prediction_result.pop(0))
+        else:
+            final_predictions = cache_predictions
+
+        return Response(
             id=request.id,
-            # predictions=self.predict(request.columns, request.rows),
-            predictions=prediction.result(),
+            predictions=final_predictions,
             drift=0
         )
-        return response
     
     def predict(self, columns: list[str], X: list[list]) -> list:
         try:

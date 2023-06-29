@@ -67,10 +67,13 @@ class Model:
     
     def load_model(self):
         try:
-            self.model = pickle.load(open(self.model_path, 'rb')) if self.logged_model is None else mlflow.pyfunc.load_model(self.logged_model)
+            self.model = mlflow.pyfunc.load_model(self.logged_model)
         except:
-            self.init_model()
-            self.train()
+            try:
+                self.model = pickle.load(open(self.model_path, 'rb'))
+            except:
+                self.init_model()
+                self.train()
 
     def train(self):
         try:

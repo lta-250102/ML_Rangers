@@ -2,6 +2,7 @@ import pickle
 import mlflow
 import logging
 import pandas as pd
+from api.cache import CacheFinder
 from abc import abstractmethod
 from api.request import Request
 from api.response import Response
@@ -25,15 +26,29 @@ class Model:
             cls._instance = super(Model, cls).__new__(cls)
         return cls._instance
     
+    def __init__(self) -> None:
+        self.cache_finder = CacheFinder()
+
     def infer(self, request: Request) -> Response:
-        prediction = self.excutor.submit(self.predict, request.columns, request.rows)
-        response = Response(
+        cache_predictions, appeared_lst = self.cache_finder.find_appeared_lst(request)
+        rows_to_predict = [row for row, appeared in zip(request.rows, appeared_lst) if not appeared]
+
+        prediction = self.excutor.submit(self.predict, request.columns, rows_to_predict)
+        prediction_result = prediction.result()
+        self.cache_finder.save_cache(request, prediction_result)
+
+        final_predictions = []
+        for i in range(len(appeared_lst)):
+            if appeared_lst[i]:
+                final_predictions.append(cache_predictions[i])
+            else:
+                final_predictions.append(prediction_result.pop(0))
+
+        return Response(
             id=request.id,
-            # predictions=self.predict(request.columns, request.rows),
-            predictions=prediction.result(),
+            predictions=final_predictions,
             drift=0
         )
-        return response
     
     def predict(self, columns: list[str], X: list[list]) -> list:
         try:

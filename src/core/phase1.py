@@ -13,6 +13,7 @@ from sklearn.preprocessing import OneHotEncoder
 from sklearn.preprocessing import StandardScaler
 # from sklearn.svm import SVC
 from catboost import CatBoostClassifier
+from xgboost import XGBClassifier
 
 import json
 
@@ -26,7 +27,7 @@ class Prob1Model(Model):
         return X
 
     def init_model(self):
-        self.model = CatBoostClassifier()
+        self.model = XGBClassifier()
 
     def calculate_drift(self) -> int:
         '''calculate drift'''
@@ -36,12 +37,17 @@ class Prob2Model(Model):
     def load_encoder(self):
         try:
             self.encoder = pickle.load(open(self.encoder_path, 'rb'))
+            self.scaler = pickle.load(open(self.scaler_path, 'rb'))
 
             with open(os.path.join(self.config.data_dir, 'phase-1/prob-2/cache.json'), 'r') as openfile:
                 cache = json.load(openfile)
-            self.object_features = cache.object_features
-            self.onehot_features = cache.onehot_features
-            self.scale_features = cache.scale_features
+            self.object_features = cache['object_features']
+            self.onehot_features = cache['onehot_features']
+            self.scale_features = cache['scale_features']
+
+            with open(os.path.join(self.config.data_dir, 'phase-1/prob-2/features-prob2.json'), 'r') as openfile:
+                rfe = json.load(openfile)
+            self.rfe_features = rfe['selected_features']
             
         except:
             data = pd.read_parquet(self.train_data_path, engine='pyarrow')
@@ -76,36 +82,36 @@ class Prob2Model(Model):
             json_object = json.dumps(cache, indent=4)
             with open(os.path.join(self.config.data_dir, 'phase-1/prob-2/cache.json'), "w") as outfile:
                 outfile.write(json_object)
+
+            with open(os.path.join(self.config.data_dir, 'phase-1/prob-2/features-prob2.json'), 'r') as openfile:
+                rfe = json.load(openfile)
+            self.rfe_features = rfe['selected_features']
             
             os.path.exists(self.config.model_dir) or os.makedirs(self.config.model_dir)
             pickle.dump(self.encoder, open(self.encoder_path, 'wb'))
+            pickle.dump(self.scaler, open(self.encoder_path, 'wb'))
 
     def preprocess(self, X: pd.DataFrame) -> pd.DataFrame:
         '''preprocess data'''
         try:
-            # tranformed = self.encoder.transform(X.loc[:, self.category_columns])
-            # X_cat = pd.DataFrame(tranformed, columns=self.category_columns)
-            # # X_cleaned = X.drop(columns=self.category_columns.__add__(['batch_id', 'is_drift']), axis=1).reset_index(drop=True)
-            # X_cleaned = X.loc[:, self.num_columns]
-            # X_cleaned = pd.concat([X_cleaned, X_cat], axis=1)
-            # return X_cleaned
-            df = X.copy()
+            # remove redundant features
+            X.drop(columns=['batch_id', 'is_drift'], axis=1, errors='ignore', inplace=True)
 
-            redundant_features = ['batch_id', 'is_drift']
-            for feature in redundant_features:
-                if feature in list(df.columns):
-                    df.drop(feature, inplace=True, axis=1)
-
-            temp = pd.DataFrame(self.encoder.transform(df[self.object_features]))
+            # one-hot encode object dtype features
+            temp = pd.DataFrame(self.encoder.transform(X[self.object_features]))
             temp.columns = self.encoder.get_feature_names_out(self.object_features)
-            df.drop(columns=self.object_features ,axis=1, inplace=True)
-            df = pd.concat([df, temp], axis=1)
+            X.drop(columns=self.object_features, axis=1, inplace=True)
+            X = pd.concat([X, temp], axis=1)
 
-            temp = df.drop(columns=self.onehot_features, axis=1, inplace=False)
+            # scale down other features
+            temp = X.drop(columns=self.onehot_features, axis=1, inplace=False)
             temp = self.scaler.transform(temp)
 
-            df.loc[:, self.scale_features] = temp
-            return df
+            X.loc[:, self.scale_features] = temp
+
+            # get features that RFE outputs
+            X = X.loc[:, self.rfe_features]
+            return X
 
         except Exception as e:
             logger.exception(e)
@@ -114,6 +120,7 @@ class Prob2Model(Model):
     def init_config(self, phase: int, prob: int):
         super().init_config(phase, prob)
         self.encoder_name = f'/phase{phase}_prob{prob}_encoder.pkl'
+        self.scaler_name = f'/phase{phase}_prob{prob}_scaler.pkl'
         self.num_columns = ["feature2", "feature5", "feature13", "feature18"]
         self.category_columns = [
             "feature1",
@@ -134,6 +141,7 @@ class Prob2Model(Model):
             "feature20"
         ]
         self.encoder_path = self.config.model_dir + self.encoder_name
+        self.scaler_path = self.config.model_dir + self.scaler_name
 
     def load_model(self):
         '''load model'''

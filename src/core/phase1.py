@@ -7,7 +7,9 @@ import pandas as pd
 from core.model import Model
 # from sklearn.svm import SVC
 from xgboost import XGBClassifier
+from lightgbm import LGBMClassifier
 from catboost import CatBoostClassifier
+from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
@@ -19,10 +21,35 @@ class Prob1Model(Model):
     def preprocess(self, X: pd.DataFrame) -> pd.DataFrame:
         '''preprocess data'''
         X = X.loc[:, ['feature3', 'feature11', 'feature15', 'feature16']]
+    #     # Preprocessing pipeline for numeric features
+    #     X_train = X.copy()
+    #     num_features = ['feature3', 'feature4', 'feature5', 'feature6', 'feature7', 'feature8',
+    #             'feature9', 'feature10', 'feature11', 'feature12', 'feature13', 'feature14',
+    #             'feature15', 'feature16']
+    #     num_transformer = StandardScaler()
+
+    # # ColumnTransformer to apply different preprocessing steps to different feature types
+    #     preprocessor = ColumnTransformer(
+    #     transformers=[
+    #     ('num', num_transformer, num_features)
+    # ])
+
+    # # Preprocess the training data
+    #     X_train_preprocessed = preprocessor.fit_transform(X_train)
+    #     X_train_preprocessed = pd.DataFrame(X_train_preprocessed)
+    #     return X_train_preprocessed
         return X
 
     def init_model(self):
-        self.model = XGBClassifier()
+        params = {
+        'learning_rate': 0.1,
+        'n_estimators': 300,
+        'max_depth': 5,
+        'min_child_samples': 30,
+        'reg_alpha': 0.5,
+        'reg_lambda': 0,
+}
+        self.model = LGBMClassifier(params)
 
     def calculate_drift(self) -> int:
         '''calculate drift'''
@@ -155,6 +182,6 @@ def load_model():
     '''load model'''
     model_1 = Prob1Model()
     model_2 = Prob2Model()
-    model_2.setup(1, 2)
     model_1.setup(1, 1)
+    model_2.setup(1, 2)
     print('Model loaded')

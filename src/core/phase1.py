@@ -6,9 +6,9 @@ import logging
 import pandas as pd
 from core.model import Model
 # from sklearn.svm import SVC
-from xgboost import XGBClassifier
+# from xgboost import XGBClassifier
 from lightgbm import LGBMClassifier
-from catboost import CatBoostClassifier
+# from catboost import CatBoostClassifier
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.preprocessing import StandardScaler
@@ -171,7 +171,15 @@ class Prob2Model(Model):
         super().load_model()
 
     def init_model(self):
-        self.model = CatBoostClassifier()
+        params = {
+            'learning_rate': 0.1,
+            'n_estimators': 300,
+            'max_depth': 5,
+            'min_child_samples': 30,
+            'reg_alpha': 0.5,
+            'reg_lambda': 0,
+        }
+        self.model = LGBMClassifier(params)
 
     def calculate_drift(self) -> int:
         '''calculate drift'''
@@ -184,4 +192,4 @@ def load_model():
     model_2 = Prob2Model()
     model_1.setup(1, 1)
     model_2.setup(1, 2)
-    print('Model loaded')
+    print('Phase 1\'s model loaded')

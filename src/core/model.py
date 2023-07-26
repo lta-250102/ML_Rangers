@@ -3,6 +3,7 @@ import json
 import pickle
 import mlflow
 import logging
+import numpy as np
 import pandas as pd
 from abc import abstractmethod
 from api.request import Request
@@ -47,12 +48,14 @@ class Model:
                 else:
                     final_predictions.append(prediction_result.pop(0))
         else:
-            final_predictions = cache_predictions
+            final_predictions= cache_predictions
+
+        is_drifted = self.excutor.submit(self.calculate_drift, request.columns, request.rows).result()
 
         return Response(
             id=request.id,
             predictions=final_predictions,
-            drift=self.calculate_drift()
+            drift=is_drifted
         )
     
     def predict(self, columns: list[str], X: list[list]) -> list:
@@ -90,6 +93,27 @@ class Model:
             pickle.dump(self.scaler, open(self.scaler_path, 'wb'))
 
     def load_model(self):
+        # prepare drift detection model
+        from sklearn.decomposition import PCA
+        from alibi_detect.cd import MMDDriftOnline
+
+        # get data to train drift detection model
+        cleaned_data, _ = self.prepare_data()
+        x_ref = cleaned_data.sample(5000, random_state=7749)
+        x_ref_np = np.array(x_ref)
+
+        # use PCA as a transformation function
+        pca = PCA(3)
+        pca.fit(x_ref_np)
+
+        # train drift detection model
+        self.drift_model = MMDDriftOnline(
+            x_ref=x_ref_np, ert=50, window_size=10, backend='pytorch', 
+            preprocess_fn=pca.transform, n_bootstraps=2500
+        ) 
+        print("Bitch i'm done training drift detection model")
+
+        # prepare prediction model
         try:
             self.model = mlflow.pyfunc.load_model(self.logged_model)
         except:
@@ -99,12 +123,16 @@ class Model:
                 self.init_model()
                 self.train()
 
+    def prepare_data(self):
+        data = pd.read_parquet(self.train_data_path, engine='pyarrow')
+        y = data[self.features_config.get('target_column', 'label')]
+        X = data.drop(columns=[self.features_config.get('target_column', 'label')])
+        X_cleaned = self.preprocess(X)
+        return X_cleaned, y
+
     def train(self):
         try:
-            data = pd.read_parquet(self.train_data_path, engine='pyarrow')
-            y = data[self.features_config.get('target_column', 'label')]
-            X = data.drop(columns=[self.features_config.get('target_column', 'label')])
-            X_cleaned = self.preprocess(X)
+            X_cleaned, y = self.prepare_data()
             X_train, X_test, y_train, y_test = train_test_split(X_cleaned.values, y.values, test_size=self.config.test_size_ratio, random_state=self.config.random_state, stratify=y)
             
             with mlflow.start_run():
@@ -149,6 +177,13 @@ class Model:
         X = pd.concat([X_cat, X_num], axis=1)
         return X
 
-    @abstractmethod
-    def calculate_drift(self) -> int:
-        pass
+    def calculate_drift(self, columns: list[str], X: list[list]) -> int:
+        try:
+            X = pd.DataFrame(X, columns=columns)
+            X = self.preprocess(X)
+            res = [self.drift_model.predict(instance)['data']['is_drift'] for instance in np.array(X)]
+            res = np.array(res)
+            return float(np.sum(res) / len(res) > self.config.drift_threshold)
+        except Exception as e:
+            logger.exception(e)
+            raise e

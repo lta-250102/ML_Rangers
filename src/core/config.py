@@ -51,3 +51,4 @@ class SYSConfig(Config):
         self.test_size_ratio = float(self.get('test_size_ratio'))
         self.random_state = int(self.get('random_state'))
         self.pool_size = int(self.get('pool_size'))
+        self.drift_threshold = float(self.get('drift_threshold'))

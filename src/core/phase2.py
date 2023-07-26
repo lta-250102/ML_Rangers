@@ -22,9 +22,6 @@ class Prob1Model(Model):
         }
         self.model = LGBMClassifier()
 
-    def calculate_drift(self) -> int:
-        '''calculate drift'''
-        return random.randint(0, 1)
 
 class Prob2Model(Model):
     def init_model(self):
@@ -38,9 +35,6 @@ class Prob2Model(Model):
         }
         self.model = LGBMClassifier()
 
-    def calculate_drift(self) -> int:
-        '''calculate drift'''
-        return random.randint(0, 1)
 
 
 def load_model():

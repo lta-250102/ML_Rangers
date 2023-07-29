@@ -32,31 +32,14 @@ class Model:
         return cls._instance        
 
     def infer(self, request: Request) -> Response:
-        cache_predictions, appeared_lst = self.cache_finder.find_appeared_lst(request)
-        rows_to_predict = [row for row, appeared in zip(request.rows, appeared_lst) if not appeared]
-        logger.info(f'Cache hit: {len(cache_predictions) - len(rows_to_predict)}')
-
-        if len(rows_to_predict) > 0:
-            prediction = self.excutor.submit(self.predict, request.columns, rows_to_predict)
-            prediction_result = prediction.result()
-            self.cache_finder.save_cache(request.rows, prediction_result)
-
-            final_predictions = []
-            for i in range(len(appeared_lst)):
-                if appeared_lst[i]:
-                    final_predictions.append(cache_predictions[i])
-                else:
-                    final_predictions.append(prediction_result.pop(0))
-        else:
-            final_predictions= cache_predictions
-
+        prediction = self.excutor.submit(self.predict, request.columns, request.rows)
         is_drifted = self.excutor.submit(self.calculate_drift, request.columns, request.rows).result()
 
         return Response(
             id=request.id,
-            predictions=final_predictions,
+            predictions=prediction.result()
             drift=is_drifted
-        )
+
     
     def predict(self, columns: list[str], X: list[list]) -> list:
         try:

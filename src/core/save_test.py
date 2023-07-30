@@ -8,6 +8,9 @@ import os
 save_test_executor = ThreadPoolExecutor(max_workers=1)
 
 def save_test(request: Request, response: Response, phase: str, prob: str):
+    # Create the folder to save the files
+    os.makedirs('storage/request', exist_ok=True)
+
     path = os.path.join(os.getcwd(), f'storage/request/{phase}_{prob}_request_data.csv')
     data = pd.DataFrame(request.rows, columns=request.columns)
     data['label'] = response.predictions

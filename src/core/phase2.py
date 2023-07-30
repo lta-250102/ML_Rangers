@@ -61,8 +61,8 @@ class Prob2Model(Model):
             data.drop("label", axis=1, inplace=True)
             data[self.features_config.get('category_columns', [])] = self.label_encoder.fit_transform(data[self.features_config.get('category_columns', [])])
             
-            data = data[sorted(sorted(list(data.columns.values)))]
-            print(data.columns)
+            data = data[sorted(list(data.columns.values))]
+
             self.scaler.fit(data)
 
             os.makedirs(self.config.model_dir, exist_ok=True)
@@ -72,8 +72,7 @@ class Prob2Model(Model):
     def preprocess(self, X: pd.DataFrame) -> pd.DataFrame:
         X[self.features_config.get('category_columns', [])] = self.label_encoder.transform(X[self.features_config.get('category_columns', [])])
 
-        X = X[sorted(sorted(list(X.columns.values)))]
-        print(X.columns)
+        X = X[sorted(list(X.columns.values))]
 
         X = pd.DataFrame(self.scaler.transform(X), columns=X.columns)
 

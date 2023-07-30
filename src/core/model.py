@@ -107,17 +107,19 @@ class Model:
             y = data[self.features_config.get('target_column', 'label')]
             X = data.drop(columns=[self.features_config.get('target_column', 'label')])
             X_cleaned = self.preprocess(X)
-            X_train, X_test, y_train, y_test = train_test_split(X_cleaned.values, y.values, test_size=self.config.test_size_ratio, random_state=self.config.random_state, stratify=y)
-            
+            # X_train, X_test, y_train, y_test = train_test_split(X_cleaned.values, y.values, test_size=self.config.test_size_ratio, random_state=self.config.random_state, stratify=y)
+            X_train = X_cleaned.values
+            y_train = y.values
+
             with mlflow.start_run():
                 self.model.fit(X_train, y_train)
-                y_pred = self.model.predict(X_test)
+                y_pred = self.model.predict(X_train)
             
                 # mlflow log
                 mlflow.log_params(self.model.get_params())
                 # mlflow.log_metrics(metrics={'accuracy': accuracy_score(y_test, y_pred),
                 #                     "roc-auc": roc_auc_score(y_test, y_pred)})
-                mlflow.log_metrics(metrics={'accuracy': accuracy_score(y_test, y_pred)})
+                mlflow.log_metrics(metrics={'accuracy': accuracy_score(y_train, y_pred)})
 
                 mlflow.sklearn.log_model(self.model, 'model', signature=infer_signature(X, y))
                 mlflow.end_run()

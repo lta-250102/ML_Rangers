@@ -12,6 +12,8 @@ services:
   mlapi2:
     build: mlapi:latest
     restart: on-failure
+    volumes:
+      - ./config.ini:/app/config.ini
     ports:
       - "5042:5040"
     depends_on:

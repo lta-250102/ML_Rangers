@@ -49,4 +49,4 @@ def load_model():
     model_2 = Prob2Model()
     model_1.setup(2, 1)
     model_2.setup(2, 2)
-    print('Phase 2\'s models loaded')
+    logger.info('Phase 2\'s models loaded')

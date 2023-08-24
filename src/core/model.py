@@ -3,7 +3,9 @@ import json
 import pickle
 import mlflow
 import logging
+import numpy as np
 import pandas as pd
+import onnxruntime as rt
 from abc import abstractmethod
 from api.request import Request
 from api.response import Response
@@ -61,7 +63,8 @@ class Model:
         try:
             X = pd.DataFrame(X, columns=columns)
             X = self.preprocess(X)
-            y = self.model.predict(X)
+            # y = self.model.predict(X)
+            y = self.sess.run([self.label_name], {self.input_name: X.values.astype(np.float32)})[0]
             return y.tolist()
         except Exception as e:
             logger.exception(e)
@@ -92,14 +95,21 @@ class Model:
             pickle.dump(self.scaler, open(self.scaler_path, 'wb'))
 
     def load_model(self):
+        # try:
+        #     self.model = mlflow.pyfunc.load_model(self.logged_model)
+        # except:
+        #     try:
+        #         self.model = pickle.load(open(self.model_path, 'rb'))
+        #     except:
+        #         self.init_model()
+        #         self.train()
+
         try:
-            self.model = mlflow.pyfunc.load_model(self.logged_model)
+            self.sess = rt.InferenceSession(self.model_path)
+            self.input_name = self.sess.get_inputs()[0].name  
+            self.label_name = self.sess.get_outputs()[0].name 
         except:
-            try:
-                self.model = pickle.load(open(self.model_path, 'rb'))
-            except:
-                self.init_model()
-                self.train()
+            raise Exception('Model not found, please train first')
 
     def train(self):
         try:
@@ -131,7 +141,7 @@ class Model:
     def init_config(self, phase: int, prob: int):
         self.name = f'phase{phase}_prob{prob}_model'
         self.logged_model = self.config.get(self.name)
-        self.model_path = self.config.model_dir + '/' + self.name + '.pkl'
+        self.model_path = self.config.model_dir + '/' + self.name + '.onnx'
         self.cat_encoder_path = self.config.model_dir + '/' + self.name + '_cat_encoder.pkl'
         self.scaler_path = self.config.model_dir + '/' + self.name + '_scaler.pkl'
         self.train_data_path = self.config.data_dir + f'/phase-{phase}/prob-{prob}/raw_train.parquet'

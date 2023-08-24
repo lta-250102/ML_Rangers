@@ -4,6 +4,7 @@ from api.request import Request
 import pandas as pd
 import os
 
+os.makedirs('storage/request/', exist_ok=True)
 
 save_test_executor = ThreadPoolExecutor(max_workers=1)
 

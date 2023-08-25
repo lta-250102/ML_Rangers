@@ -14,7 +14,7 @@ async def phase1_prob1(request: Request) -> Response:
     try:
         model = Prob1Model()
         response = model.infer(request=request)
-        save_test_executor.submit(save_test, request, response, 'phase-3', 'prob-1')
+        # save_test_executor.submit(save_test, request, response, 'phase-3', 'prob-1')
         return response
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
@@ -24,7 +24,7 @@ async def phase1_prob2(request: Request) -> Response:
     try:
         model = Prob2Model()
         response = model.infer(request=request)
-        save_test_executor.submit(save_test, request, response, 'phase-3', 'prob-2')
+        # save_test_executor.submit(save_test, request, response, 'phase-3', 'prob-2')
         return response
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

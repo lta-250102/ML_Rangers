@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   mlapi1:
-    build: mlapi:latest
+    image: mlapi:latest
     restart: on-failure
     volumes:
       - ./config.ini:/app/config.ini
@@ -10,12 +10,84 @@ services:
       - "5041:5040"
 
   mlapi2:
-    build: mlapi:latest
+    image: mlapi:latest
     restart: on-failure
+    volumes:
+      - ./config.ini:/app/config.ini
     ports:
       - "5042:5040"
     depends_on:
       - mlapi1
+
+  mlapi3:
+    image: mlapi:latest
+    restart: on-failure
+    volumes:
+      - ./config.ini:/app/config.ini
+    ports:
+      - "5043:5040"
+    depends_on:
+      - mlapi2
+
+  mlapi4:
+    image: mlapi:latest
+    restart: on-failure
+    volumes:
+      - ./config.ini:/app/config.ini
+    ports:
+      - "5044:5040"
+    depends_on:
+      - mlapi3
+
+  mlapi5:
+    image: mlapi:latest
+    restart: on-failure
+    volumes:
+      - ./config.ini:/app/config.ini
+    ports:
+      - "5045:5040"
+    depends_on:
+      - mlapi4
+
+  mlapi6:
+    image: mlapi:latest
+    restart: on-failure
+    volumes:
+      - ./config.ini:/app/config.ini
+    ports:
+      - "5046:5040"
+    depends_on:
+      - mlapi5
+
+  mlapi7:
+    image: mlapi:latest
+    restart: on-failure
+    volumes:
+      - ./config.ini:/app/config.ini
+    ports:
+      - "5047:5040"
+    depends_on:
+      - mlapi6
+
+  # mlapi8:
+  #   image: mlapi:latest
+  #   restart: on-failure
+  #   volumes:
+  #     - ./config.ini:/app/config.ini
+  #   ports:
+  #     - "5048:5040"
+  #   depends_on:
+  #     - mlapi7
+
+  # mlapi9:
+  #   image: mlapi:latest
+  #   restart: on-failure
+  #   volumes:
+  #     - ./config.ini:/app/config.ini
+  #   ports:
+  #     - "5049:5040"
+  #   depends_on:
+  #     - mlapi8
 
   gateway:
     image: nginx:latest

@@ -15,11 +15,6 @@ async def phase1_prob1(request: Request) -> Response:
         model = Prob1Model()
         response = model.infer(request=request)
         save_test_executor.submit(save_test, request, response, 'phase-3', 'prob-1')
-        response = Response(
-            id=request.id,
-            predictions=[0] * len(request.rows),
-            drift=0
-        )
         return response
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

@@ -3,7 +3,9 @@ import json
 import pickle
 import random
 import logging
+import numpy as np
 import pandas as pd
+import onnxruntime as rt
 from core.model import Model
 from lightgbm import LGBMClassifier
 
@@ -14,6 +16,33 @@ class Prob1Model(Model):
     def init_model(self):
         self.model = LGBMClassifier()
 
+    # def predict(self, columns: list[str], X: list[list]) -> list:
+    #     try:
+    #         X = pd.DataFrame(X, columns=columns)
+    #         X = self.preprocess(X)
+    #         y = self.sess.run([self.label_name], {self.input_name: X.values.astype(np.float32)})[0]
+    #         return y.tolist()
+    #     except Exception as e:
+    #         logger.exception(e)
+    #         raise e
+        
+    # def load_model(self):
+    #     try:
+    #         self.sess = rt.InferenceSession(self.model_path)
+    #         self.input_name = self.sess.get_inputs()[0].name  
+    #         self.label_name = self.sess.get_outputs()[0].name 
+    #     except:
+    #         raise Exception('Model not found, please train first')
+
+    # def init_config(self, phase: int, prob: int):
+    #     self.name = f'phase{phase}_prob{prob}_model'
+    #     self.logged_model = self.config.get(self.name)
+    #     self.model_path = self.config.model_dir + '/' + self.name + '.onnx'
+    #     self.cat_encoder_path = self.config.model_dir + '/' + self.name + '_cat_encoder.pkl'
+    #     self.scaler_path = self.config.model_dir + '/' + self.name + '_scaler.pkl'
+    #     self.train_data_path = self.config.data_dir + f'/phase-{phase}/prob-{prob}/raw_train.parquet'
+    #     self.features_config : dict = json.loads(open(self.config.data_dir + f'/phase-{phase}/prob-{prob}/features_config.json', 'r').read())
+
     def calculate_drift(self) -> int:
         '''calculate drift'''
         return random.randint(0, 1)
@@ -21,35 +50,6 @@ class Prob1Model(Model):
 class Prob2Model(Model):
     def init_model(self):
         self.model = LGBMClassifier()
-
-    def predict(self, columns: list[str], X: list[list]) -> list:
-        try:
-            X = pd.DataFrame(X, columns=columns)
-            X = self.preprocess(X)
-            y = self.model.predict(X)
-            return y.tolist()
-        except Exception as e:
-            logger.exception(e)
-            raise e
-        
-    def load_model(self):
-        try:
-            self.model = mlflow.pyfunc.load_model(self.logged_model)
-        except:
-            try:
-                self.model = pickle.load(open(self.model_path, 'rb'))
-            except:
-                self.init_model()
-                self.train()
-
-    def init_config(self, phase: int, prob: int):
-        self.name = f'phase{phase}_prob{prob}_model'
-        self.logged_model = self.config.get(self.name)
-        self.model_path = self.config.model_dir + '/' + self.name + '.pkl'
-        self.cat_encoder_path = self.config.model_dir + '/' + self.name + '_cat_encoder.pkl'
-        self.scaler_path = self.config.model_dir + '/' + self.name + '_scaler.pkl'
-        self.train_data_path = self.config.data_dir + f'/phase-{phase}/prob-{prob}/raw_train.parquet'
-        self.features_config : dict = json.loads(open(self.config.data_dir + f'/phase-{phase}/prob-{prob}/features_config.json', 'r').read())
 
     def calculate_drift(self) -> int:
         '''calculate drift'''
